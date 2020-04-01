@@ -1,6 +1,9 @@
-require('vendor/d3-js');
-const c3 = require('c3');
+const load = require('./vendor-loader');
 
-console.log('init: c3-js'); // eslint-disable-line no-console
+module.exports = load('c3', () => {
+  require('vendor/d3-js');
 
-module.exports = window['c3'] = c3;
+  const c3 = require('c3/c3');
+  window['c3'] = c3;
+  return c3;
+});

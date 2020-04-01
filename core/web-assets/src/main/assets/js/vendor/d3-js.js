@@ -1,5 +1,7 @@
-const d3 = require('d3');
+const load = require('./vendor-loader');
 
-console.log('init: d3-js'); // eslint-disable-line no-console
-
-module.exports = window['d3'] = d3;
+module.exports = load('d3', () => {
+  const d3 = require('d3/d3');
+  window['d3'] = d3;
+  return d3;
+});
